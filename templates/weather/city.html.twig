@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{# @var location \App\Entity\Location #}
+{# @var weather \App\Entity\Weather #}
+
+{% block title %}Weather in {{ location.name }}, {{ location.country }}{% endblock %}
+
+{% block body %}
+    <style>
+        body {
+            background: url("https://placehold.co/100x100/FFFFFF/EFEFEF/png?text=46586");
+        }
+    </style>
+    <main>
+        <h1>Weather in {{ location.name }}, {{ location.country }}</h1>
+
+        <ul>
+            {% for measurement in measurements %}
+                <li>{{ measurement.date|date('d.m.Y') }}: {{ measurement.temperature }}&deg;C</li>
+            {% endfor %}
+        </ul>
+    </main>
+{% endblock %}
