@@ -1,0 +1,70 @@
+App\Entity\Location:
+  properties:
+    name:
+      - NotBlank:
+          groups: ['create', 'edit']
+      - Length:
+          max: 255
+    country:
+      - NotBlank:
+          groups: ['create', 'edit']
+      - Length:
+          max: 2
+          groups: ['create', 'edit']
+    latitude:
+      - NotBlank:
+          groups: ['create', 'edit']
+      - Range:
+          groups: ['create', 'edit']
+          min: -90
+          max: 90
+    longitude:
+      - NotBlank:
+          groups: ['create', 'edit']
+      - Range:
+          groups: ['create', 'edit']
+          min: -180
+          max: 180
+    altitude:
+      - NotBlank:
+          groups: ['create', 'edit']
+      - Range:
+          groups: ['create', 'edit']
+          min: 0
+
+
+App\Entity\Measurement:
+  properties:
+    date:
+      - NotBlank:
+          groups: ['create', 'edit']
+    temperature:
+      - NotBlank:
+          groups: ['create', 'edit']
+      - Range:
+          groups: ['create', 'edit']
+          min: -100
+          max: 100
+    windSpeed:
+      - NotBlank:
+          groups: ['create', 'edit']
+      - Range:
+          groups: ['create', 'edit']
+          min: 0
+    pressure:
+      - NotBlank:
+          groups: ['create', 'edit']
+      - Range:
+          groups: ['create', 'edit']
+          min: 0
+          max: 2000
+    humidity:
+      - NotBlank:
+          groups: ['create', 'edit']
+      - Range:
+          groups: ['create', 'edit']
+          min: 0
+          max: 100
+    weatherType:
+      - NotBlank:
+          groups: ['create', 'edit']

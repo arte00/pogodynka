@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link href="{{ bootstrap_css }}" rel="stylesheet">
+        <style>
+            header {
+                background-color: #333;
+                color: white;
+                padding: 10px;
+            }
+            nav a {
+                color: white;
+                text-decoration: none;
+                margin-right: 20px;
+            }
+            nav a:hover {
+                text-decoration: underline;
+            }
+        </style>
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
             {{ ux_controller_link_tags() }}
         {% endblock %}
 
@@ -14,6 +30,14 @@
         {% endblock %}
     </head>
     <body>
+    <header>
+        <nav>
+            <a href="{{ url('app_location_index') }}">Locations</a>
+            <a href="{{ url('app_measurement_index') }}">Measurements</a>
+        </nav>
+    </header>
+
         {% block body %}{% endblock %}
+        <script src="{{ bootstrap_js }}"></script>
     </body>
 </html>
